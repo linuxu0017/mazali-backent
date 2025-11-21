@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-l(9z^j$jjo$jy!l_mr8_#u%xv-ig%ax3p5_a2tie#z8yk)1pob
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'Users',
+    'Buyurtma',
+    'Notification',
+    'Products',
+    'Savat'
 ]
 
 MIDDLEWARE = [
@@ -50,6 +57,18 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Mazali.urls'
+
+AUTH_USER_MODEL = 'Users.CustomUser'
+
+# REST framework sozlamalari
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
 
 TEMPLATES = [
     {
