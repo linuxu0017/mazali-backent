@@ -20,5 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('Users.urls')),  # custom user API
-    path('api/v1/product/', include('Products.urls'))
+    path('api/v1/product/', include('Products.urls')),
+    path('api/v1/baskets/', include('Savat.urls')),
+    path('api/v1/orders/', include('Buyurtma.urls')),
 ]
